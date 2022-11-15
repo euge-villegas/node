@@ -1,12 +1,18 @@
 import axios from "axios";
-
-
 class Searchs {
-    history = ['Mendoza', 'Buenos Aires', 'Cordoba'];
+    // history = ['Mendoza', 'Buenos Aires', 'Cordoba'];
 
     constructor() {
         //to do leer db if exists
     }
+
+    get paramsMapbox() {
+        return {
+            'limit':5,
+            'language':'en',
+            'access_token': process.env.MAPBOX_KEY,
+        }
+    } 
 
     async city(place = '') {
         
@@ -14,21 +20,23 @@ class Searchs {
 
             const instance = axios.create({
                 baseURL: `https://api.mapbox.com/`,
-                params: {
-                    'limit':5,
-                    'language':'en',
-                    'access_token':'pk.eyJ1IjoiZXVnZXZpIiwiYSI6ImNsYWdueGptYTBoNnEzcHFuMDYwcmZtcDIifQ.P8SLB6yJnapdOS9oFnv5zQ'
-                }
+                params: this.paramsMapbox
             });
 
-            const resp = instance.get(`geocoding/v5/mapbox.places/${place}.json`);
+            const resp = await instance.get(`geocoding/v5/mapbox.places/${place}.json`);
             // console.log(place, 'city');
-            console.log(resp);
-            return [];
+            return resp.data.features.map(place => ({
+                id: place.id,
+                name: place.place_name,
+                lng: place.center[0],
+                lat: place.center[1]
+            }));
         } catch (error) {
             console.log(error);
             return [];
         }
+
+
     }
 }
 
