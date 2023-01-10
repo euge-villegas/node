@@ -11,10 +11,9 @@ const main = async() => {
     const tasksDB = readDB();
 
     if (tasksDB) {
-        // 
+        tasks.chargeTaskFromArray(tasksDB)
     }
 
-    await pause();
 
     do {
         // Print menu
@@ -33,7 +32,7 @@ const main = async() => {
                 break;
         }
 
-        // saveDB(tasks.arrayList);
+        saveDB(tasks.arrayList);
 
         await pause();
 

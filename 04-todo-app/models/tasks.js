@@ -17,6 +17,12 @@ class Tasks {
         this._list = {}
     }
 
+    chargeTaskFromArray (tasks = []) {
+        tasks.forEach( t => {
+            this._list[t.id] = t;
+        })
+    }
+
     createTask( desc = '' ) {
         const task = new Task(desc);
         this._list[task.id] = task;
