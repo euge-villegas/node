@@ -28,7 +28,7 @@ const main = async() => {
                 break;
             case '2':
                 // Task list
-                console.log(tasks.arrayList);
+                tasks.fullList();
                 break;
         }
 

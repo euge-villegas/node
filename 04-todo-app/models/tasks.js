@@ -28,6 +28,17 @@ class Tasks {
         this._list[task.id] = task;
     }
 
+    fullList() {
+        console.log();
+        this.arrayList.forEach ((task, i) => {
+            const idx = `${i + 1}`.green;
+            const { desc, completedOn } = task;
+            const taskState = (completedOn) ? 'Completed'.green : 'Pending'.red;
+
+            console.log(`${idx} ${desc} :: ${taskState}`);
+        });
+    }
+
 }
 
 export {
