@@ -1,5 +1,5 @@
 import { inquirerMenu, pause, readInput } from './helpers/inquirer.js';
-import { saveDB } from './helpers/saveFile.js';
+import { readDB, saveDB } from './helpers/saveFile.js';
 import { Tasks } from './models/tasks.js';
 
 
@@ -7,6 +7,14 @@ const main = async() => {
 
     let opt = '';
     const tasks = new Tasks();
+
+    const tasksDB = readDB();
+
+    if (tasksDB) {
+        // 
+    }
+
+    await pause();
 
     do {
         // Print menu

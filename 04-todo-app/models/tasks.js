@@ -18,8 +18,8 @@ class Tasks {
     }
 
     createTask( desc = '' ) {
-            const task = new Task(desc);
-            this._list[task.id] = task;
+        const task = new Task(desc);
+        this._list[task.id] = task;
     }
 
 }
