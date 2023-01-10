@@ -1,25 +1,24 @@
-const { Resolver } = require('dns');
-
-require('colors');
+import colors from 'colors';
 
 
-const mostrarMenu = () => {
+const showMenu = () => {
 
     return new Promise((resolve) => {
+        console.clear();
 
         console.clear();
         console.log("===========================".green);
         console.log("      Select an option     ".green);
         console.log("===========================\n".green);
-    
-            console.log(`${'1.'.green} Create a task`);
-            console.log(`${'2.'.green} Task's list`);
-            console.log(`${'3.'.green} Completed tasks`);
-            console.log(`${'4.'.green} Pending tasks`);
-            console.log(`${'5.'.green} Complete task`);
-            console.log(`${'6.'.green} Delete task`);
-            console.log(`${'0.'.green} Exit\n`);
-    
+
+        console.log(`${'1.'.green} Create a task`);
+        console.log(`${'2.'.green} Task's list`);
+        console.log(`${'3.'.green} Completed tasks`);
+        console.log(`${'4.'.green} Pending tasks`);
+        console.log(`${'5.'.green} Complete task`);
+        console.log(`${'6.'.green} Delete task`);
+        console.log(`${'0.'.green} Exit\n`);
+
         const readline = require('readline').createInterface({
             input: process.stdin,
             output: process.stdout
@@ -29,10 +28,11 @@ const mostrarMenu = () => {
             readline.close();
             resolve(opt);
         })
-    });
+    })
+    
 }
 
-const pausa = () => {
+const pause = () => {
     return new Promise((resolve) => {
         const readline = require('readline').createInterface({
             input: process.stdin,
@@ -47,7 +47,7 @@ const pausa = () => {
     
 }
 
-module.exports = {
-    mostrarMenu,
-    pausa
+export {
+    showMenu,
+    pause
 }

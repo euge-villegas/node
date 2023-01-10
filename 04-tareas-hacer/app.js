@@ -11,9 +11,9 @@ const main = async() => {
 
     const tareasDB = readDB();
 
-    if (tareasDB) {
-        tareas.addTasksFromArray(tareasDB);
-    }
+    // if (tareasDB) {
+    //     tareas.addTasksFromArray(tareasDB);
+    // }
 
     do {
         opt = await inquirerMenu();
