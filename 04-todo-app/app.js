@@ -30,6 +30,12 @@ const main = async() => {
                 // Task list
                 tasks.fullList();
                 break;
+            case '3':
+                tasks.pendingTask(true);
+                break;
+            case '4':
+                tasks.pendingTask(false);
+                break;
         }
 
         saveDB(tasks.arrayList);

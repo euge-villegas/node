@@ -35,7 +35,26 @@ class Tasks {
             const { desc, completedOn } = task;
             const taskState = (completedOn) ? 'Completed'.green : 'Pending'.red;
 
-            console.log(`${idx} ${desc} :: ${taskState}`);
+            console.log(`${(idx + '.').green} ${desc} :: ${taskState}`);
+        });
+    }
+
+    pendingTask( completed = true) {
+        this.arrayList.forEach (task => {
+            const { desc, completedOn } = task;
+            const taskState = (completedOn) ? 'Completed'.green : 'Pending'.red;
+            if (completed) {
+                if (completedOn) {
+                    let count =+ 1;
+                    console.log(`${ (count + '.').green } ${desc} :: ${completedOn}`);
+                }
+            } else {
+                if (!completedOn) {
+                    let count =+ 1;
+                    console.log(`${ (count + '.').green } ${desc} :: ${taskState}`);
+                }
+            }
+            
         });
     }
 
