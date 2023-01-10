@@ -1,4 +1,4 @@
-import { inquirerMenu, pause, readInput } from './helpers/inquirer.js';
+import { inquirerMenu, pause, readInput, deleteList } from './helpers/inquirer.js';
 import { readDB, saveDB } from './helpers/saveFile.js';
 import { Tasks } from './models/tasks.js';
 
@@ -36,6 +36,9 @@ const main = async() => {
             case '4':
                 tasks.pendingTask(false);
                 break;
+            case '6':
+                const id = await deleteList(tasks.arrayList);
+                console.log({id});
         }
 
         saveDB(tasks.arrayList);

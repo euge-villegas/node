@@ -17,6 +17,12 @@ class Tasks {
         this._list = {}
     }
 
+    deleteTask(id = ''){
+        if(this._list[id]){
+            delete this._list[id];
+        }
+    }
+
     chargeTaskFromArray (tasks = []) {
         tasks.forEach( t => {
             this._list[t.id] = t;
@@ -57,6 +63,8 @@ class Tasks {
             
         });
     }
+
+
 
 }
 
