@@ -104,11 +104,19 @@ const deleteList = async(tasks = []) => {
     const { id } = await inquirer.prompt(questions);
     return id;
 
-    console.log(choices);
-    // {
-    //     value: '3',
-    //     name: `${'3.'.green} Completed tasks`
-    // }
+}
+
+const confirm = (message) => {
+    const question = [
+        {
+            type: 'confirm',
+            name: 'ok',
+            message
+        }
+    ]
+
+    const { ok } = await inquirer.prompt(question);
+    return ok;
 }
 
 export {
